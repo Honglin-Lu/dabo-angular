@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-body>
+      <div class="d-flex flex-row align-items-center">
+        <div class="col-md-6">
+          <span class="h6 text-hint">
+            <a [routerLink]="['/dashboard']"><nb-icon icon="home-outline"></nb-icon>Home</a> {{currentRoute}}
+          </span>
+        </div>
+        <div class="col-md-6 text-right m-0 p-0">
+          <button (click)="openWindow()" nbButton status="primary" class="ml-3"><nb-icon icon="{{toolbarPopup['addBtnPopup']['icon']}}"></nb-icon>{{toolbarPopup['addBtnPopup']['title']}}</button>
+          <button nbButton status="basic" class="ml-3" nbContextMenuTag="toolbar-context-menu" [nbContextMenu]="toolbarPopup['morePopup']"><nb-icon icon="more-horizontal-outline"></nb-icon>More</button>
+        </div>
+      </div>
+  </nb-card-body>
+</nb-card>

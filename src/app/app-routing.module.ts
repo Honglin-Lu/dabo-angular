@@ -46,6 +46,12 @@ export const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  {
+    path: 'customer',
+    loadChildren: () => import('./modules/customer/customer.module')
+      .then(m => m.CustomerModule),
+  },
+  { path: 'product', loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
   { path: '**', redirectTo: 'pages' },
 ];
 

@@ -107,13 +107,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "ngx",
+      ["hl", "ngx"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "ngx",
+      ["hl", "ngx"],
       "kebab-case"
     ],
     "ban": [
@@ -129,7 +129,7 @@
     "no-inputs-metadata-property": true,
     "no-outputs-metadata-property": true,
     "no-output-rename": true,
-    "use-lifecycle-interface": true,
+    "use-lifecycle-interface": false,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true

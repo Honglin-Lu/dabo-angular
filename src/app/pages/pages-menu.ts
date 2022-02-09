@@ -9,17 +9,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Customers',
     icon: 'person-done-outline',
-    children: [
-      {
-        title: 'Manage Customer',
-      },
-      {
-        title: 'Add Customer',
-      },
-    ],
+    link: 'customer',
   },
   {
     title: 'Products',
+    link: 'product',
     icon: 'shopping-bag-outline',
   },
   {
