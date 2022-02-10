@@ -52,6 +52,11 @@ export const routes: Routes = [
       .then(m => m.CustomerModule),
   },
   { path: 'product', loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
+  {
+    path: 'setting',
+    loadChildren: () => import('./modules/setting/setting.module')
+      .then(m => m.SettingModule),
+  },
   { path: '**', redirectTo: 'pages' },
 ];
 
