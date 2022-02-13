@@ -44,9 +44,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Profile',
+        link : 'setting/profile',
       },
       {
         title: 'Password',
+        link: 'setting/password',
       },
       {
         title: 'Logout',
