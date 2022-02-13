@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
-import { ProductComponent } from './product-list/product-list.component';
+import {ProductListComponent} from './product-list/product-list.component';
 import {ThemeModule} from '../../@theme/theme.module';
 import {NbButtonModule, NbCardModule, NbInputModule, NbMenuModule, NbRadioModule} from '@nebular/theme';
 import {TablesModule} from '../../pages/tables/tables.module';
@@ -13,7 +13,7 @@ import { ProductImportComponent } from './product-import/product-import.componen
 
 @NgModule({
   declarations: [
-    ProductComponent,
+    ProductListComponent,
     ProductAddComponent,
     ProductImportComponent,
   ],
@@ -29,5 +29,6 @@ import { ProductImportComponent } from './product-import/product-import.componen
     NbInputModule,
     NbButtonModule,
   ],
+
 })
 export class ProductModule { }
