@@ -8,7 +8,7 @@ import {ProductImportComponent} from '../product-import/product-import.component
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductComponent implements OnInit {
+export class ProductListComponent implements OnInit {
   toolbarPopupConfig = {
     addBtnPopup: {
       title: 'Add Product',
