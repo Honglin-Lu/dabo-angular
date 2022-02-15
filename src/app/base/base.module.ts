@@ -42,11 +42,11 @@ import { CommonSidemenuComponent } from './common-sidemenu/common-sidemenu.compo
     NbUserModule,
     NbSidebarModule,
   ],
-    exports: [
-        TableToolbarComponent,
-        TableBasicComponent,
-        LayoutFullComponent,
-        LayoutSideComponent,
-    ],
+  exports: [
+      TableToolbarComponent,
+      TableBasicComponent,
+      LayoutFullComponent,
+      LayoutSideComponent,
+  ],
 })
 export class BaseModule { }

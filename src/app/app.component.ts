@@ -12,8 +12,12 @@ export class AppComponent implements OnInit {
 
   menu = MENU_ITEMS;
 
+  loginStatus = true;
+
   constructor(private analytics: AnalyticsService, private seoService: SeoService, private authService: AuthService) {
-    // console.log(authService.logStatus);
+    authService.sub.subscribe(res => {
+      this.loginStatus = res;
+    });
   }
 
   ngOnInit(): void {

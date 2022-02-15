@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {AuthResponse} from '../interface/auth-response';
-import {AuthRequest} from '../interface/auth-request';
 import {User} from '../model/user';
 import {environment} from '../../../../environments/environment';
 import {Router} from '@angular/router';
@@ -11,43 +9,39 @@ import {Router} from '@angular/router';
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
-
-  public logStatus: boolean = false;
+  loginStatus: boolean = false;
+  sub: Subject<any>;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(
-      localStorage.getItem('user')));
-    this.user = this.userSubject.asObservable();
+    this.sub = new Subject<any>();
+    this.updateUserLoginState();
   }
 
-  public get userValue(): User {
-    return this.userSubject.value;
-  }
-
-  currentUser() {
-    return this.userValue;
-  }
-
-  isLogged(status: boolean) {
-    this.logStatus = status;
+  updateUserLoginState(): void {
+    if (localStorage.getItem('user')) {
+      this.loginStatus = true;
+    } else {
+      this.loginStatus = false;
+    }
+    this.sub.next(this.loginStatus);
   }
 
   login(username, password) {
     return this.http.post<User>(`${environment.baseUrl}/api/auth/signin`,
       {username, password})
       .pipe(map(user => {
-          localStorage.setItem('user', JSON.stringify(user['data']));
-          this.userSubject.next(user);
-          return user;
+          const res = JSON.stringify(user['data']);
+          localStorage.setItem('user', res);
+          this.updateUserLoginState();
+          return res;
       }));
   }
 
   logout() {
-    localStorage.removeItem('user');
-    this.isLogged(false);
-    this.userSubject.next(null);
+    // localStorage.removeItem('user');
+    localStorage.clear();
+    this.updateUserLoginState();
     this.router.navigate(['/auth/login']);
   }
+
 }

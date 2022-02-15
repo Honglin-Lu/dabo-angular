@@ -37,12 +37,9 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
         this.userMenu.forEach((item) => {
         });
       });
-    this.user = this.authService.currentUser();
-    // console.log(this.user);
-    // this.userService.getUsers()
-    //   .pipe(takeUntil(this.destroy$))
-    //   .subscribe((users: any) => this.user = users.nick);
-
+    if (this.authService.loginStatus) {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
   }
 
   ngOnDestroy() {

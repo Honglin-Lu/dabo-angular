@@ -2,4 +2,4 @@
 
 ## System features are in development... 
 ### Todo
-### UI kit component based on ( [ngx-admin](https://github.com/akveo/ngx-admin) ) 
+### UI kit component based on ( [Nebular](https://akveo.github.io/nebular/docs/getting-started/what-is-nebular#what-is-nebular) ) 

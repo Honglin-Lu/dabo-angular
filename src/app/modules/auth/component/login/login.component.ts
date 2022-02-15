@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(
               private router: Router,
               private toastrService: NbToastrService,
-              private loginService: AuthService,
+              private authService: AuthService,
               private formBuilder: FormBuilder) { }
 
   config: NbToastrConfig;
@@ -71,11 +71,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.login(this.f.username.value, this.f.password.value)
+    this.authService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
-          this.loginService.isLogged(true);
           this.showToast('success', 'Login Info', 'You have successfully logged into the system.');
           this.router.navigate(['/']);
         },
