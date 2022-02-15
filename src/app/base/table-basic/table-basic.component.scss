@@ -1,0 +1,96 @@
+
+.table-basic {
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  font-weight: unset;
+  padding-right: 10px;
+}
+
+tr th:first-child, tr td:first-child {
+  padding-left: 20px;
+}
+
+.table-basic-head th {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.table-basic-body td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/*==================================================================
+[ Fix header ]*/
+.table-basic {
+  position: relative;
+  //padding-top: 60px;
+}
+
+.table-basic-head {
+  //position: relative;
+  //width: 100%;
+  //top: 0;
+  //left: 0;
+}
+
+.table-basic-body {
+  max-height: 585px;
+  overflow: auto;
+}
+
+
+.table-basic.general th {
+  font-family: Lato-Bold;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  background-color: #8f9bb3;
+}
+
+.table-basic.general td {
+  font-family: Lato-Regular;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.4;
+}
+
+.table-basic.general .table-basic-body tr:nth-child(even) {
+  background-color: #f8f6ff;
+}
+
+.table-basic.general {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
+
+.table-basic.general .ps__rail-y {
+  right: 5px;
+}
+
+.table-basic.general .ps__rail-y::before {
+  background-color: #ebebeb;
+}
+
+.table-basic.general .ps__rail-y .ps__thumb-y::before {
+  background-color: #cccccc;
+}
+
+.operation a{
+  text-decoration: none;
+  color: #7d96e1;
+}
+.operation a:hover {
+  text-decoration: underline;
+}

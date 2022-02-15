@@ -17,6 +17,7 @@ import { LayoutSideComponent } from './layout-side/layout-side.component';
 import { CommonHeaderComponent } from './common-header/common-header.component';
 import { CommonFooterComponent } from './common-footer/common-footer.component';
 import { CommonSidemenuComponent } from './common-sidemenu/common-sidemenu.component';
+import { PaginationBasicComponent } from './pagination-basic/pagination-basic.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CommonSidemenuComponent } from './common-sidemenu/common-sidemenu.compo
     CommonHeaderComponent,
     CommonFooterComponent,
     CommonSidemenuComponent,
+    PaginationBasicComponent,
   ],
   imports: [
     CommonModule,
@@ -47,6 +49,7 @@ import { CommonSidemenuComponent } from './common-sidemenu/common-sidemenu.compo
       TableBasicComponent,
       LayoutFullComponent,
       LayoutSideComponent,
+      PaginationBasicComponent,
   ],
 })
 export class BaseModule { }

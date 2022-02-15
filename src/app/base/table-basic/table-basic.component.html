@@ -1,10 +1,81 @@
 <nb-card>
-  <nb-card-header>
-    Smart Table
-  </nb-card-header>
 
-  <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
-  </nb-card-body>
+    <div class="table-basic general m-b-110">
+<!--      <div class="table-basic-head">-->
+<!--        <table>-->
+
+<!--        </table>-->
+<!--      </div>-->
+
+      <div class="table-basic-body js-pscroll ps ps--active-y">
+        <table>
+          <thead class="table-basic-head">
+          <tr class="row100 head">
+            <th class="basic-cell">Class name</th>
+            <th class="basic-cell">Type</th>
+            <th class="basic-cell">Hours</th>
+            <th class="basic-cell">Trainer</th>
+            <th class="basic-cell">Spots</th>
+            <th class="basic-cell">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="row100 body">
+            <td class="basic-cell ">Like a butterfly</td>
+            <td class="basic-cell">Boxing</td>
+            <td class="basic-cell">9:00 AM - 11:00 AM</td>
+            <td class="basic-cell">Aaron Chapman</td>
+            <td class="basic-cell">1033</td>
+            <td class="basic-cell">
+              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
+                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
+              </span>
+            </td>
+          </tr>
+
+          <tr class="row100 body">
+            <td class="basic-cell">Mind &amp; Body</td>
+            <td class="basic-cell">Yoga</td>
+            <td class="basic-cell">8:00 AM - 9:00 AM</td>
+            <td class="basic-cell">Adam Stewart</td>
+            <td class="basic-cell">15</td>
+            <td class="basic-cell">
+              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
+                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
+              </span>
+            </td>
+          </tr>
+
+          <tr class="row100 body">
+            <td class="basic-cell">Crit Cardio</td>
+            <td class="basic-cell">Gym</td>
+            <td class="basic-cell">9:00 AM - 10:00 AM</td>
+            <td class="basic-cell">Aaron Chapman</td>
+            <td class="basic-cell">10</td>
+            <td class="basic-cell">
+              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
+                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
+              </span>
+            </td>
+          </tr>
+
+          <tr class="row100 body">
+            <td class="basic-cell">Wheel Pose Full Posture</td>
+            <td class="basic-cell">Yoga</td>
+            <td class="basic-cell">7:00 AM - 8:30 AM</td>
+            <td class="basic-cell">Donna Wilson</td>
+            <td class="basic-cell">15</td>
+            <td class="basic-cell">
+              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
+                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
+              </span>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <hl-pagination-basic></hl-pagination-basic>
+    </div>
+
 </nb-card>
