@@ -1,15 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableToolbarComponent } from './table-toolbar/table-toolbar.component';
-import {NbButtonModule, NbCardModule, NbContextMenuModule, NbIconModule} from '@nebular/theme';
+import {
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbContextMenuModule,
+  NbIconModule,
+  NbLayoutModule, NbSearchModule, NbSidebarModule, NbUserModule,
+} from '@nebular/theme';
 import {RouterModule} from '@angular/router';
 import { TableBasicComponent } from './table-basic/table-basic.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
+import { LayoutFullComponent } from './layout-full/layout-full.component';
+import { LayoutSideComponent } from './layout-side/layout-side.component';
+import { CommonHeaderComponent } from './common-header/common-header.component';
+import { CommonFooterComponent } from './common-footer/common-footer.component';
+import { CommonSidemenuComponent } from './common-sidemenu/common-sidemenu.component';
 
 @NgModule({
   declarations: [
     TableToolbarComponent,
     TableBasicComponent,
+    LayoutFullComponent,
+    LayoutSideComponent,
+    CommonHeaderComponent,
+    CommonFooterComponent,
+    CommonSidemenuComponent,
   ],
   imports: [
     CommonModule,
@@ -19,10 +36,17 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
     NbContextMenuModule,
     RouterModule,
     Ng2SmartTableModule,
+    NbLayoutModule,
+    NbActionsModule,
+    NbSearchModule,
+    NbUserModule,
+    NbSidebarModule,
   ],
-  exports: [
-    TableToolbarComponent,
-    TableBasicComponent,
-  ],
+    exports: [
+        TableToolbarComponent,
+        TableBasicComponent,
+        LayoutFullComponent,
+        LayoutSideComponent,
+    ],
 })
 export class BaseModule { }

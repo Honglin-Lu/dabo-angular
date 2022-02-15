@@ -1,0 +1,31 @@
+<div class="limiter login-css-selector">
+  <div class="container-dabo-login">
+    <div class="wrap-dabo-login p-t-50 p-b-90">
+      <form class="dabo-login-form validate-form flex-sb flex-w" [formGroup]="loginForm" (ngSubmit)="login()">
+        <span class="dabo-login-form-title p-b-51">
+        Dabo Login
+        </span>
+        <div class="wrap-login-input validate-input m-b-16" data-validate="Username is required">
+          <input class="login-input" type="text" formControlName="username" placeholder="Username">
+          <span class="focus-login-input"></span>
+        </div>
+        <div class="wrap-login-input validate-input m-b-16" data-validate="Password is required">
+          <input class="login-input" type="password" formControlName="password" placeholder="Password">
+          <span class="focus-login-input"></span>
+        </div>
+        <div class="flex-sb-m w-full p-t-3 p-b-24 auth-tips">
+          <div>
+            <span class="txt1">
+              Username: <i>dabo_admin</i>, Password: <i>dabo_pass</i>
+            </span>
+          </div>
+        </div>
+        <div class="container-dabo-login-form-btn m-t-17">
+          <button class="dabo-login-form-btn">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

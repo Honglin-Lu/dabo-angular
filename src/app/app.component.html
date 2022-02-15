@@ -1,5 +1,13 @@
-<ngx-one-column-layout>
+<hl-layout-side  *ngIf="login">
   <nb-menu [items]="menu"></nb-menu>
   <router-outlet>
   </router-outlet>
-</ngx-one-column-layout>
+</hl-layout-side>
+<ng-template #login>
+<hl-layout-full>
+  <router-outlet>
+  </router-outlet>
+</hl-layout-full>
+</ng-template>
+
+

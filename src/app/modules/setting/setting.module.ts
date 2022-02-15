@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './component/profile/profile.component';
 import {NbButtonModule, NbCardModule, NbDatepickerModule, NbInputModule} from '@nebular/theme';
 import {SettingRoutingModule} from './setting-routing.module';
-import { PasswordComponent } from './password/password.component';
+import { PasswordComponent } from './component/password/password.component';
 
 
 

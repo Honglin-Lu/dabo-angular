@@ -14,12 +14,13 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   NbChatModule,
   NbDatepickerModule,
-  NbDialogModule,
+  NbDialogModule, NbLayoutModule,
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import {BaseModule} from './base/base.module';
 
 
 @NgModule({
@@ -41,6 +42,8 @@ import {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NbDatepickerModule.forRoot(),
+    BaseModule,
+    NbLayoutModule,
 
   ],
   bootstrap: [AppComponent],

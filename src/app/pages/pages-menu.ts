@@ -279,7 +279,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         ],
       },
       {
-        title: 'Auth',
+        title: 'auth-response.ts',
         icon: 'lock-outline',
         children: [
           {
