@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import {Subject} from 'rxjs';
-import {NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
+import {NbDialogService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 import {LayoutService} from '../../@core/utils';
 import {filter, map, takeUntil} from 'rxjs/operators';
 import {AuthService} from '../../modules/auth/service/auth.service';
@@ -17,13 +17,14 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
   user: any;
 
   menuClickSubscribe = null;
-  userMenu = [ { title: 'Profile', link: '/setting/profile' }, { title: 'Logout', link: '/auth/login' } ];
+  userMenu = [ { title: 'Profile', link: '/setting/profile' }, { title: 'Switch Account'} ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private authService: AuthService,
               private layoutService: LayoutService,
+              private dialogService: NbDialogService,
               ) {
   }
 
@@ -63,6 +64,10 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
 
   logout() {
     return this.authService.logout();
+  }
+
+  confirmLogoutDialog(dialog: TemplateRef<any>) {
+    this.dialogService.open(dialog, { context: 'Do you want to exit the system?', closeOnBackdropClick: false });
   }
 
 }

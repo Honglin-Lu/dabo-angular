@@ -3,6 +3,7 @@ import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
 import {MENU_ITEMS} from './pages/pages-menu';
 import {AuthService} from './modules/auth/service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-app',
@@ -12,12 +13,18 @@ export class AppComponent implements OnInit {
 
   menu = MENU_ITEMS;
 
-  loginStatus = true;
+  loginStatus = false;
 
-  constructor(private analytics: AnalyticsService, private seoService: SeoService, private authService: AuthService) {
-    authService.sub.subscribe(res => {
-      this.loginStatus = res;
-    });
+  constructor(private analytics: AnalyticsService,
+              private seoService: SeoService,
+              private authService: AuthService,
+              private router: Router,
+  ) {
+    authService.sub.subscribe(res => {this.loginStatus = res});
+    this.loginStatus = localStorage.getItem('user') ? true : false;
+    if (this.loginStatus === false) {
+      this.router.navigate(['/auth/login']);
+    }
   }
 
   ngOnInit(): void {
