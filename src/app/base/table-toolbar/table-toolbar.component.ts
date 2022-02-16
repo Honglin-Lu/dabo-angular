@@ -54,6 +54,7 @@ export class TableToolbarComponent implements OnInit {
         buttons: this.buttonsConfig,
         hasBackdrop: true,
         closeOnBackdropClick: false,
+        windowClass: 'hl-dialog',
       });
   }
 

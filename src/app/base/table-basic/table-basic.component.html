@@ -1,22 +1,11 @@
 <nb-card>
-
     <div class="table-basic general m-b-110">
-<!--      <div class="table-basic-head">-->
-<!--        <table>-->
-
-<!--        </table>-->
-<!--      </div>-->
-
       <div class="table-basic-body js-pscroll ps ps--active-y">
         <table>
           <thead class="table-basic-head">
           <tr class="row100 head">
-            <th class="basic-cell">Class name</th>
-            <th class="basic-cell">Type</th>
-            <th class="basic-cell">Hours</th>
-            <th class="basic-cell">Trainer</th>
-            <th class="basic-cell">Spots</th>
-            <th class="basic-cell">Action</th>
+            <th class="basic-cell" *ngFor="let item of settings.columns">{{item}}</th>
+
           </tr>
           </thead>
           <tbody>
@@ -77,5 +66,4 @@
       </div>
       <hl-pagination-basic></hl-pagination-basic>
     </div>
-
 </nb-card>

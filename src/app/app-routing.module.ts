@@ -25,6 +25,16 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/customer/customer.module')
       .then(m => m.CustomerModule),
   },
+  {
+    path: 'department',
+    loadChildren: () => import('./modules/department/department.module')
+      .then(m => m.DepartmentModule),
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./modules/user/user.module')
+      .then(m => m.UserModule),
+  },
   { path: 'product', loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
   {
     path: 'setting',

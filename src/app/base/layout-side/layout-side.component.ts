@@ -23,9 +23,9 @@ import { Component, OnInit } from '@angular/core';
         <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
 
-      <nb-layout-footer fixed>
-        <hl-common-footer></hl-common-footer>
-      </nb-layout-footer>
+<!--      <nb-layout-footer fixed>-->
+<!--        <hl-common-footer></hl-common-footer>-->
+<!--      </nb-layout-footer>-->
     </nb-layout>
   `,
 })

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
-import {MENU_ITEMS} from './pages/pages-menu';
 import {AuthService} from './modules/auth/service/auth.service';
 import {Router} from '@angular/router';
+import {DABO_MENU_CONFIG} from './base/config-menu/dabo-menu';
 
 @Component({
   selector: 'ngx-app',
@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  menu = MENU_ITEMS;
+  menu = DABO_MENU_CONFIG;
 
   loginStatus = false;
 
