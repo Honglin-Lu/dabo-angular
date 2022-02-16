@@ -9,6 +9,10 @@ import {CustomerImportComponent} from "../customer-import/customer-import.compon
 })
 export class CustomerListComponent implements OnInit {
 
+  table = {
+    columns: ['ID', 'UserName', 'Email', 'FirstName', 'LastName', 'Role'],
+    data: null,
+  };
   toolbarPopupConfig = {
     addBtnPopup: {
       title: 'Add Customer',

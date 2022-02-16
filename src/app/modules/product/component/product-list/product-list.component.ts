@@ -9,6 +9,10 @@ import {ProductImportComponent} from '../product-import/product-import.component
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  table = {
+    columns: ['ID', 'UserName', 'Email', 'FirstName', 'LastName', 'Role'],
+    data: null,
+  };
   toolbarPopupConfig = {
     addBtnPopup: {
       title: 'Add Product',

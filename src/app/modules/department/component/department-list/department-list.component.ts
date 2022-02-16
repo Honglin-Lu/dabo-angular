@@ -7,7 +7,10 @@ import {DepartmentAddComponent} from '../department-add/department-add.component
   styleUrls: ['./department-list.component.scss'],
 })
 export class DepartmentListComponent implements OnInit {
-
+  table = {
+    columns: ['ID', 'UserName', 'Email', 'FirstName', 'LastName', 'Role'],
+    data: null,
+  };
   toolbarPopupConfig = {
     addBtnPopup: {
       title: 'Add Department',
