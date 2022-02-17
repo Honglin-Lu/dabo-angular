@@ -6,7 +6,8 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { UserAddComponent } from './component/user-add/user-add.component';
 import { UserImportComponent } from './component/user-import/user-import.component';
 import {BaseModule} from '../../base/base.module';
-import {NbButtonModule, NbCardModule, NbInputModule, NbRadioModule, NbSelectModule} from '@nebular/theme';
+import {NbButtonModule, NbCardModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule} from '@nebular/theme';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -15,15 +16,17 @@ import {NbButtonModule, NbCardModule, NbInputModule, NbRadioModule, NbSelectModu
     UserAddComponent,
     UserImportComponent,
   ],
-    imports: [
-        CommonModule,
-        UserRoutingModule,
-        BaseModule,
-        NbCardModule,
-        NbRadioModule,
-        NbInputModule,
-        NbButtonModule,
-        NbSelectModule,
-    ],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    BaseModule,
+    NbCardModule,
+    NbRadioModule,
+    NbInputModule,
+    NbButtonModule,
+    NbSelectModule,
+    NbIconModule,
+    ReactiveFormsModule,
+  ],
 })
 export class UserModule { }
