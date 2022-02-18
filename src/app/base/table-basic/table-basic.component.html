@@ -4,56 +4,17 @@
         <table>
           <thead class="table-basic-head">
           <tr class="row100 head">
-            <th class="basic-cell" *ngFor="let item of settings.columns">{{item}}</th>
+            <th class="basic-cell" *ngFor="let item of table.columns | keyvalue">{{item.value.title}}</th>
 
           </tr>
           </thead>
           <tbody>
-          <tr class="row100 body">
-            <td class="basic-cell ">Like a butterfly</td>
-            <td class="basic-cell">Boxing</td>
-            <td class="basic-cell">9:00 AM - 11:00 AM</td>
-            <td class="basic-cell">Aaron Chapman</td>
+          <tr class="row100 body" *ngFor="let item of table?.data?.data?.content">
+            <td class="basic-cell ">{{item['id']}}</td>
+            <td class="basic-cell">{{item['username']}}</td>
+            <td class="basic-cell">{{item['email']}}</td>
+            <td class="basic-cell">{{item['firstname']}}</td>
             <td class="basic-cell">1033</td>
-            <td class="basic-cell">
-              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
-                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
-              </span>
-            </td>
-          </tr>
-
-          <tr class="row100 body">
-            <td class="basic-cell">Mind &amp; Body</td>
-            <td class="basic-cell">Yoga</td>
-            <td class="basic-cell">8:00 AM - 9:00 AM</td>
-            <td class="basic-cell">Adam Stewart</td>
-            <td class="basic-cell">15</td>
-            <td class="basic-cell">
-              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
-                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
-              </span>
-            </td>
-          </tr>
-
-          <tr class="row100 body">
-            <td class="basic-cell">Crit Cardio</td>
-            <td class="basic-cell">Gym</td>
-            <td class="basic-cell">9:00 AM - 10:00 AM</td>
-            <td class="basic-cell">Aaron Chapman</td>
-            <td class="basic-cell">10</td>
-            <td class="basic-cell">
-              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
-                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
-              </span>
-            </td>
-          </tr>
-
-          <tr class="row100 body">
-            <td class="basic-cell">Wheel Pose Full Posture</td>
-            <td class="basic-cell">Yoga</td>
-            <td class="basic-cell">7:00 AM - 8:30 AM</td>
-            <td class="basic-cell">Donna Wilson</td>
-            <td class="basic-cell">15</td>
             <td class="basic-cell">
               <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
                 <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>

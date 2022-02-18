@@ -1,12 +1,7 @@
-/**
- * @license
- * Copyright Akveo. All Rights Reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- */
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
@@ -21,6 +16,8 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import {BaseModule} from './base/base.module';
+import {LogInterceptor} from './interceptor/log.interceptor';
+import {FeedbackInterceptor} from './interceptor/feedback.interceptor';
 
 
 @NgModule({
@@ -45,6 +42,10 @@ import {BaseModule} from './base/base.module';
     BaseModule,
     NbLayoutModule,
 
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: FeedbackInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

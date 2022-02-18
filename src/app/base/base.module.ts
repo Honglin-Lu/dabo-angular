@@ -18,6 +18,7 @@ import { CommonHeaderComponent } from './common-header/common-header.component';
 import { CommonFooterComponent } from './common-footer/common-footer.component';
 import { CommonSidemenuComponent } from './common-sidemenu/common-sidemenu.component';
 import { PaginationBasicComponent } from './pagination-basic/pagination-basic.component';
+import { MessageFeedbackComponent } from './message-feedback/message-feedback.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PaginationBasicComponent } from './pagination-basic/pagination-basic.co
     CommonFooterComponent,
     CommonSidemenuComponent,
     PaginationBasicComponent,
+    MessageFeedbackComponent,
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from "../../service/user.service";
+import {User} from "../../interface/user";
 
 @Component({
   selector: 'ngx-user-add',
@@ -11,7 +13,7 @@ export class UserAddComponent implements OnInit {
 
   addUserForm!: FormGroup;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   roleSelected = '4';
 
@@ -53,7 +55,9 @@ export class UserAddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.addUserForm.value);
+    const newUser: User = this.addUserForm.value as User;
+    this.userService.addUser(newUser)
+      .subscribe(user => console.log(user));
   }
 
 }

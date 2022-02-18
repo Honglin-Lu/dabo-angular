@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {UserAddComponent} from '../user-add/user-add.component';
 import {UserImportComponent} from '../user-import/user-import.component';
+import {UserService} from "../../service/user.service";
+import {User} from "../../interface/user";
 
 @Component({
   selector: 'hl-user-list',
@@ -11,7 +13,14 @@ import {UserImportComponent} from '../user-import/user-import.component';
 export class UserListComponent implements OnInit {
 
   table = {
-    columns: ['ID', 'UserName', 'Email', 'FirstName', 'LastName', 'Role'],
+    columns: {
+      id:         { title: 'ID' },
+      username:   { title: 'Username' },
+      email:      { title: 'Email' },
+      firstname:  { title: 'First Name' },
+      lastname:   { title: 'Last Name' },
+      created_at: { title: 'Created Time' },
+    },
     data: null,
   };
 
@@ -26,11 +35,22 @@ export class UserListComponent implements OnInit {
       { title: 'Export User To Csv', icon: 'cloud-download-outline', comp: UserAddComponent, dialogWidth: '10%' },
     ],
   };
-
-  constructor() { }
+  users: User[] = [];
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-
+    this.getUsers();
   }
+
+  getUsers(): void {
+    this.userService.getUsers()
+      .subscribe(users => {
+        this.users = users;
+        this.table.data = users;
+        // console.log(this.users);
+      });
+  }
+
+
 
 }
