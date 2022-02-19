@@ -4,17 +4,13 @@
         <table>
           <thead class="table-basic-head">
           <tr class="row100 head">
-            <th class="basic-cell" *ngFor="let item of table.columns | keyvalue">{{item.value.title}}</th>
-
+            <th class="basic-cell" *ngFor="let item of columns | keyvalue">{{item.value.title}}</th>
+            <th class="basic-cell">Action</th>
           </tr>
           </thead>
           <tbody>
-          <tr class="row100 body" *ngFor="let item of table?.data?.data?.content">
-            <td class="basic-cell ">{{item['id']}}</td>
-            <td class="basic-cell">{{item['username']}}</td>
-            <td class="basic-cell">{{item['email']}}</td>
-            <td class="basic-cell">{{item['firstname']}}</td>
-            <td class="basic-cell">1033</td>
+          <tr class="row100 body"  *ngFor="let record of this.records">
+            <td class="basic-cell" *ngFor="let column of columns | keyvalue">{{record[column.key]}}</td>
             <td class="basic-cell">
               <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
                 <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>

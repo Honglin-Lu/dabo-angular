@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, OnInit, ViewEncapsulation} from '@angular/core';
 import {UserAddComponent} from '../user-add/user-add.component';
 import {UserImportComponent} from '../user-import/user-import.component';
 import {UserService} from "../../service/user.service";
@@ -12,17 +12,17 @@ import {User} from "../../interface/user";
 })
 export class UserListComponent implements OnInit {
 
-  table = {
-    columns: {
-      id:         { title: 'ID' },
-      username:   { title: 'Username' },
-      email:      { title: 'Email' },
-      firstname:  { title: 'First Name' },
-      lastname:   { title: 'Last Name' },
-      created_at: { title: 'Created Time' },
-    },
-    data: null,
+
+  columns = {
+    id:         { title: 'ID' },
+    username:   { title: 'Username' },
+    email:      { title: 'Email' },
+    firstname:  { title: 'First Name' },
+    lastname:   { title: 'Last Name' },
+    created_at: { title: 'Created Time' },
   };
+
+  records = null;
 
   toolbarPopupConfig = {
     addBtnPopup: {
@@ -36,6 +36,7 @@ export class UserListComponent implements OnInit {
     ],
   };
   users: User[] = [];
+  count = 0;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -44,10 +45,8 @@ export class UserListComponent implements OnInit {
 
   getUsers(): void {
     this.userService.getUsers()
-      .subscribe(users => {
-        this.users = users;
-        this.table.data = users;
-        // console.log(this.users);
+      .subscribe(res => {
+        this.records = res['data'];
       });
   }
 

@@ -1,52 +1,57 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component, DoCheck,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
-import {SmartTableData} from '../../@core/data/smart-table';
-import {settings} from "cluster";
 
 @Component({
   selector: 'hl-table-basic',
   templateUrl: './table-basic.component.html',
   styleUrls: ['./table-basic.component.scss'],
 })
-export class TableBasicComponent implements OnInit, OnChanges {
+export class TableBasicComponent implements OnInit, OnChanges, OnDestroy {
 
-  @Input() table;
+  @Input() columns;
+  @Input() records;
+
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
+  constructor() {
+  }
 
 
-    // const data = this.service.getData();
-    // this.source.load(data);
+  ngOnInit(): void {
 
   }
 
-  ngOnInit(): void {
+  filterData() {
+    const dataArr = [];
+    this.records?.content?.forEach((v, i) => {
+      const obj = {};
+      for (const c in this.columns) {
+        if (c in v) { obj[c] = v[c]; }
+        dataArr[i] = obj;
+      }
+    });
+    return dataArr;
+  }
+
+  log (val) {
+    console.log(val);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log(changes);
-    // this.table?.data?.data?.content?.forEach((v, i) => {
-    //   console.log(v);
-    //   const obj = {};
-    //   // console.log(v);
-    //   for (const c in this.table.columns) {
-    //     if (c in v) {
-    //       obj[c] = v[c];
-    //     }
-    //     this.table.data[i] = obj;
-    //   }
-    // });
-    // console.log(changes);
+    this.records = this.filterData();
   }
 
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  ngOnDestroy() {
   }
+
 }
 

@@ -21,7 +21,7 @@
       "check-space"
     ],
     "eofline": true,
-    "forin": true,
+    "forin": false,
     "import-blacklist": [
       true
     ],
@@ -39,7 +39,7 @@
     "member-access": false,
     "no-arg": true,
     "no-console": [
-      true,
+      false,
       "debug",
       "log",
       "time",
@@ -71,7 +71,7 @@
     ],
     "prefer-const": true,
     "quotemark": [
-      true,
+      false,
       "single"
     ],
     "radix": true,
