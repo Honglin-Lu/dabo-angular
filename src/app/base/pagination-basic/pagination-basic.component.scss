@@ -28,21 +28,27 @@
 }
 .pagination a:hover,
 .pagination a .pagination-active {
+  background-color: #8f9bb3;
   color: #fff;
+  font-weight: bold;
 }
 .pagination a:hover:before,
 .pagination a .pagination-active:before {
   transform: scale(1);
 }
 .pagination .pagination-active {
+  background-color: #8f9bb3;
   color: #fff;
+  font-weight: bold;
 }
 .pagination .pagination-active:before {
   transform: scale(1);
 }
 .pagination-newer {
   margin-right: 50px;
+  cursor: pointer;
 }
 .pagination-older {
   margin-left: 50px;
+  cursor: pointer;
 }

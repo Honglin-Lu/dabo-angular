@@ -16,8 +16,8 @@ export class UserService {
     return this.http.post<User>(this.addUrl, user);
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.listUrl);
+  getUsers(page: number): Observable<User[]> {
+    return this.http.get<User[]>(this.listUrl + '?page=' + page);
   }
 
 

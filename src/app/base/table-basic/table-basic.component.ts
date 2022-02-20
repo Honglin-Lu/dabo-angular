@@ -20,7 +20,7 @@ export class TableBasicComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns;
   @Input() records;
 
-  source: LocalDataSource = new LocalDataSource();
+  pageMeta = {};
 
   constructor() {
   }
@@ -47,6 +47,7 @@ export class TableBasicComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    this.pageMeta = this.records;
     this.records = this.filterData();
   }
 

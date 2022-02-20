@@ -1,14 +1,16 @@
 <nav class="pagination-container d-flex justify-content-center">
-  <div class="pagination">
-    <a class="pagination-newer" href="#">PREV</a>
+  <div class="pagination" *ngIf="isEmpty === false; else nothing">
+    <a class="pagination-newer text-info" *ngIf="pageMeta?.first === false" (click)="prevPage()">PREV</a>
     <span class="pagination-inner">
-					<a href="#">1</a>
-					<a class="pagination-active" href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#">5</a>
-					<a href="#">6</a>
-				</span>
-    <a class="pagination-older" href="#">NEXT</a>
+		  <a [routerLink]="['/user']" [ngClass]="currentPage(p)" [queryParams]="getParams(p)" *ngFor="let p of pages">{{p}}</a>
+		</span>
+    <a class="pagination-older text-info" *ngIf="pageMeta?.last === false" (click)="nextPage()">NEXT</a>
+
+    <a class="pagination-older text-info"><b>Total {{pageMeta?.totalElements}} records</b></a>
   </div>
+    <ng-template #nothing>
+      <div class="pagination text-hint">
+        <nb-icon icon="file-outline"></nb-icon>There are no records here yet~
+      </div>
+  </ng-template>
 </nav>

@@ -1,8 +1,18 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  DoCheck,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import {UserAddComponent} from '../user-add/user-add.component';
 import {UserImportComponent} from '../user-import/user-import.component';
 import {UserService} from "../../service/user.service";
 import {User} from "../../interface/user";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'hl-user-list',
@@ -10,7 +20,7 @@ import {User} from "../../interface/user";
   styleUrls: ['./user-list.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
 
 
   columns = {
@@ -37,14 +47,24 @@ export class UserListComponent implements OnInit {
   };
   users: User[] = [];
   count = 0;
-  constructor(private userService: UserService) { }
-
+  constructor(private userService: UserService,
+              private route: ActivatedRoute,
+              private router: Router,
+            ) { }
+  sub: Subscription;
   ngOnInit(): void {
-    this.getUsers();
+    this.sub = this.route.queryParams.subscribe(params => {
+      const page = +params['page'] || 1;
+      this.getUsers(page);
+    });
   }
 
-  getUsers(): void {
-    this.userService.getUsers()
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  getUsers(page: number): void {
+    this.userService.getUsers(page)
       .subscribe(res => {
         this.records = res['data'];
       });
