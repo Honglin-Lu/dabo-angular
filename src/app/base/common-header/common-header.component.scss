@@ -68,3 +68,34 @@
     }
   }
 }
+
+.switch-user {
+  width: 650px;
+}
+
+.user-image {
+  width: 80px;
+}
+
+.single-user-box {
+  width: 250px;
+  height: 165px;
+  border: 1px dashed #ccc;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+
+}
+
+.single-user-box p {
+  overflow: hidden;
+  max-width: 15ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-center {
+  margin: 0 auto;
+}
+
