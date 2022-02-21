@@ -10,6 +10,7 @@ import {environment} from '../../../../environments/environment';
 export class UserService {
   addUrl = `${environment.baseUrl}/api/auth/signup`;
   listUrl = `${environment.baseUrl}/users`;
+  deleteUrl = `${environment.baseUrl}/users`;
   constructor(private http: HttpClient) {}
 
   addUser(user: User): Observable<any> {
@@ -18,6 +19,10 @@ export class UserService {
 
   getUsers(page: number): Observable<User[]> {
     return this.http.get<User[]>(this.listUrl + '?page=' + page);
+  }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(this.deleteUrl + '/' + id);
   }
 
 

@@ -5,7 +5,7 @@ import {
   DoCheck,
   OnDestroy,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import {UserAddComponent} from '../user-add/user-add.component';
 import {UserImportComponent} from '../user-import/user-import.component';
@@ -22,7 +22,6 @@ import {Subscription} from "rxjs";
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
-
   columns = {
     id:         { title: 'ID' },
     username:   { title: 'Username' },
@@ -33,6 +32,8 @@ export class UserListComponent implements OnInit, OnDestroy {
   };
 
   records = null;
+
+  currPage: number;
 
   toolbarPopupConfig = {
     addBtnPopup: {
@@ -46,7 +47,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     ],
   };
   users: User[] = [];
-  count = 0;
   constructor(private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
@@ -55,6 +55,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.route.queryParams.subscribe(params => {
       const page = +params['page'] || 1;
+      this.currPage = page;
       this.getUsers(page);
     });
   }
@@ -67,6 +68,13 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.userService.getUsers(page)
       .subscribe(res => {
         this.records = res['data'];
+      });
+  }
+
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id)
+      .subscribe(res => {
+        this.getUsers(this.currPage);
       });
   }
 

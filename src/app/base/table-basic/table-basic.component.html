@@ -12,8 +12,8 @@
           <tr class="row100 body"  *ngFor="let record of this.records">
             <td class="basic-cell" *ngFor="let column of columns | keyvalue">{{record[column.key]}}</td>
             <td class="basic-cell">
-              <span class="operation"><a href="#"><nb-icon icon="trash-2-outline"></nb-icon> del</a> &nbsp;&nbsp;
-                <a href="#"><nb-icon icon="edit-2-outline"></nb-icon> edit</a>
+              <span class="operation"><a class="record-action" (click)="confirmDelete(record['id'], dialog)"><nb-icon icon="trash-2-outline"></nb-icon> Del</a> &nbsp;&nbsp;
+                <a href="#" class="record-action"><nb-icon icon="edit-2-outline"></nb-icon> Edit</a>
               </span>
             </td>
           </tr>
@@ -24,3 +24,14 @@
       <hl-pagination-basic [pageMeta] = "pageMeta" *ngIf="pageMeta"></hl-pagination-basic>
     </div>
 </nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Confirm Delete </nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+      <button nbButton (click)="ref.close()" class="mr-5">No, keep it.</button>
+      <button nbButton status="danger" (click)="deleteFn(); ref.close();">Yes, delete it.</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
