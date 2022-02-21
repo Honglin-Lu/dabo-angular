@@ -18,6 +18,7 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
 
   menuClickSubscribe = null;
   userMenu = [ { title: 'Profile', link: '/setting/profile' }, { title: 'Switch Account'} ];
+  languageMenu = [{ title: 'English'}, {title: 'Français'}];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -70,4 +71,7 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
     this.dialogService.open(dialog, { context: 'Do you want to exit the system?', closeOnBackdropClick: false });
   }
 
+  switchUser(switchUser: TemplateRef<any>) {
+    this.dialogService.open(switchUser);
+  }
 }
