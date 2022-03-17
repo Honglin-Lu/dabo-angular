@@ -8,6 +8,8 @@ import { UserImportComponent } from './component/user-import/user-import.compone
 import {BaseModule} from '../../base/base.module';
 import {NbButtonModule, NbCardModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule} from '@nebular/theme';
 import {ReactiveFormsModule} from "@angular/forms";
+import { UserFormComponent } from './component/user-form/user-form.component';
+import { UserEditComponent } from './component/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     UserListComponent,
     UserAddComponent,
     UserImportComponent,
+    UserFormComponent,
+    UserEditComponent,
   ],
   imports: [
     CommonModule,
